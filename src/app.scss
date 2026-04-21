@@ -1,0 +1,23 @@
+:root {
+  --seal: #A84846;
+  --blue-ink: #3D5A80;
+  --ink: #2B2620;
+  --ink-soft: #6E5B48;
+  --ink-faint: #A08060;
+  --paper: #FBF5E4;
+  --paper-edge: #E6D9B8;
+  --bg: #F3EAD3;
+  --tape-yellow: rgba(245, 230, 99, 0.55);
+  --tape-pink: rgba(240, 170, 180, 0.55);
+  --tape-blue: rgba(140, 190, 220, 0.5);
+}
+
+page {
+  background-color: var(--bg);
+  font-family: -apple-system, 'PingFang SC', 'Heiti SC', sans-serif;
+  color: var(--ink);
+}
+
+view, text, button, input, textarea, image {
+  box-sizing: border-box;
+}

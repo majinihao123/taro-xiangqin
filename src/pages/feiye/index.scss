@@ -1,0 +1,420 @@
+// 小程序设计宽 750rpx，所有尺寸直接用 rpx
+
+.feiye-page {
+  min-height: 100vh;
+  background-color: #F3EAD3;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 54rpx,
+    rgba(160, 128, 96, 0.18) 54rpx,
+    rgba(160, 128, 96, 0.18) 56rpx
+  );
+  padding-bottom: 80rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+// 状态栏占位
+.status-bar {
+  height: 88rpx;
+}
+
+// 胶带条
+.tape {
+  position: absolute;
+  height: 40rpx;
+  border-radius: 2rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.08);
+
+  &--yellow { background: rgba(245, 230, 99, 0.6); }
+  &--pink   { background: rgba(240, 170, 180, 0.6); }
+}
+
+// ── 刊头 ──────────────────────────────
+.masthead {
+  padding: 60rpx 56rpx 0;
+  position: relative;
+  z-index: 2;
+
+  &__vol {
+    font-size: 20rpx;
+    letter-spacing: 6rpx;
+    color: #A08060;
+    font-family: 'Courier New', monospace;
+  }
+
+  &__title {
+    font-size: 120rpx;
+    line-height: 1.1;
+    color: #2B2620;
+    margin-top: 12rpx;
+    font-weight: 700;
+  }
+
+  &__title-accent {
+    color: #A84846;
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: 36rpx;
+    color: #6E5B48;
+    margin-top: 10rpx;
+    font-style: italic;
+    transform: rotate(-2deg);
+  }
+}
+
+// ── 题记 ──────────────────────────────
+.inscription {
+  margin: 48rpx 40rpx 0;
+  padding: 28rpx 32rpx;
+  background: rgba(251, 245, 228, 0.75);
+  border: 2rpx dashed rgba(100, 70, 40, 0.3);
+  border-radius: 4rpx;
+
+  &__label {
+    font-size: 18rpx;
+    letter-spacing: 6rpx;
+    color: #A08060;
+    font-family: 'Courier New', monospace;
+  }
+
+  &__body {
+    margin-top: 12rpx;
+    font-size: 26rpx;
+    line-height: 1.9;
+    color: #2B2620;
+  }
+
+  &__highlight {
+    background: rgba(245, 230, 99, 0.5);
+    padding: 0 4rpx;
+  }
+
+  &__sub {
+    color: #A08060;
+    font-size: 24rpx;
+  }
+}
+
+// ── 称谓选择 ──────────────────────────
+.picker {
+  padding: 44rpx 40rpx 0;
+
+  &__label {
+    font-size: 20rpx;
+    letter-spacing: 6rpx;
+    color: #A08060;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 24rpx;
+    display: block;
+  }
+}
+
+// 选项卡片
+.option-card {
+  position: relative;
+  padding: 28rpx 32rpx;
+  background: rgba(251, 245, 228, 0.45);
+  border: 3rpx dashed rgba(100, 70, 40, 0.25);
+  border-radius: 4rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &--active {
+    background: #FBF5E4;
+    border-style: solid;
+  }
+
+  // 圆形选中框
+  &__circle {
+    width: 52rpx;
+    height: 52rpx;
+    border-radius: 26rpx;
+    border: 3rpx solid rgba(100, 70, 40, 0.35);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 28rpx;
+
+    &--active {
+      border-color: currentColor;
+    }
+  }
+
+  &__circle-text {
+    font-size: 30rpx;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  // 文字区
+  &__info {
+    flex: 1;
+  }
+
+  &__title-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  &__zh {
+    font-size: 52rpx;
+    font-weight: 700;
+    line-height: 1;
+    margin-right: 16rpx;
+    color: #2B2620;
+  }
+
+  &__en {
+    font-size: 30rpx;
+    color: #A08060;
+    font-style: italic;
+  }
+
+  &__sub {
+    font-size: 24rpx;
+    color: #A08060;
+    margin-top: 8rpx;
+  }
+
+  // 印章角标（选中时）
+  &__seal {
+    position: absolute;
+    top: -16rpx;
+    right: -16rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    border: 4rpx solid currentColor;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(251, 245, 228, 0.95);
+    transform: rotate(12deg);
+  }
+
+  &__seal-text {
+    font-size: 22rpx;
+    font-weight: 700;
+  }
+}
+
+// ── 警示条 ────────────────────────────
+.warning {
+  margin: 36rpx 40rpx 0;
+  padding: 20rpx 24rpx;
+  background: rgba(245, 230, 99, 0.3);
+  border-left: 4rpx solid #A84846;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  &__flag {
+    color: #A84846;
+    font-size: 28rpx;
+    line-height: 1.6;
+    margin-right: 12rpx;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    font-size: 22rpx;
+    color: #2B2620;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  &__underline {
+    text-decoration: underline;
+  }
+}
+
+// ── 提交按钮 ──────────────────────────
+.submit-area {
+  padding: 44rpx 40rpx 0;
+
+  &__btn {
+    width: 100%;
+    height: 96rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4rpx;
+
+    &--active {
+      background: #2B2620;
+      box-shadow: 6rpx 6rpx 0 #A84846;
+    }
+
+    &--inactive {
+      background: rgba(100, 70, 40, 0.18);
+    }
+  }
+
+  &__btn-text {
+    font-size: 34rpx;
+    letter-spacing: 8rpx;
+
+    &--active  { color: #FBF5E4; }
+    &--inactive { color: #A08060; }
+  }
+
+  &__hint {
+    display: block;
+    text-align: center;
+    margin-top: 24rpx;
+    font-size: 18rpx;
+    letter-spacing: 6rpx;
+    color: #A08060;
+    font-family: 'Courier New', monospace;
+  }
+}
+
+// ── 确认弹窗 ──────────────────────────
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: rgba(43, 38, 32, 0.58);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 48rpx;
+}
+
+.modal-card {
+  background: #FBF5E4;
+  padding: 44rpx;
+  box-shadow: 0 40rpx 80rpx rgba(0,0,0,0.28);
+  width: 100%;
+  border-radius: 4rpx;
+  transform: rotate(-1deg);
+
+  &__meta {
+    font-size: 18rpx;
+    letter-spacing: 6rpx;
+    color: #A08060;
+    font-family: 'Courier New', monospace;
+  }
+
+  &__title {
+    font-size: 44rpx;
+    color: #2B2620;
+    margin-top: 12rpx;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  &__rule {
+    height: 2rpx;
+    background-image: linear-gradient(
+      90deg,
+      rgba(100, 80, 50, 0.35) 50%,
+      transparent 50%
+    );
+    background-size: 12rpx 2rpx;
+    background-repeat: repeat-x;
+    margin: 24rpx 0;
+  }
+
+  &__body {
+    font-size: 24rpx;
+    color: #6E5B48;
+    line-height: 1.8;
+  }
+
+  // 印章展示区
+  &__seal-area {
+    margin: 36rpx 0 8rpx;
+    height: 176rpx;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__seal-ring {
+    position: absolute;
+    width: 176rpx;
+    height: 176rpx;
+    border-radius: 88rpx;
+    border: 2rpx dashed rgba(100, 70, 40, 0.4);
+  }
+
+  &__seal-placeholder {
+    font-size: 20rpx;
+    color: #A08060;
+    letter-spacing: 4rpx;
+    font-family: 'Courier New', monospace;
+  }
+
+  &__seal-stamp {
+    width: 144rpx;
+    height: 144rpx;
+    border-radius: 72rpx;
+    border: 6rpx solid currentColor;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-8deg);
+
+    &-text {
+      font-size: 44rpx;
+      font-weight: 700;
+    }
+  }
+
+  // 按钮行
+  &__btns {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+  }
+
+  &__btn-cancel {
+    flex: 1;
+    height: 88rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1rpx solid rgba(100, 70, 40, 0.3);
+    background: transparent;
+    margin-right: 20rpx;
+    border-radius: 4rpx;
+  }
+
+  &__btn-confirm {
+    flex: 2;
+    height: 88rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4rpx;
+    box-shadow: 4rpx 4rpx 0 #2B2620;
+  }
+
+  &__btn-text {
+    font-size: 30rpx;
+    letter-spacing: 4rpx;
+
+    &--cancel  { color: #6E5B48; }
+    &--confirm { color: #FBF5E4; }
+  }
+}
